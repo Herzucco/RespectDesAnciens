@@ -10,7 +10,7 @@ public class Gacha : MonoBehaviour {
 
 		if (collider.tag == "Player") {
 			Player p = collider.GetComponent<Player>();
-
+			p.currentWeapon = possibleWeapons[Random.Range(0, possibleWeapons.Count)];
 		}
 	}
 }
