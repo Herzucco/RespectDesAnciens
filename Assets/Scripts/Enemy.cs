@@ -15,8 +15,9 @@ public class Enemy : MonoBehaviour {
 	}
 
 	void Update(){
+		Debug.Log (life);
 		if (willDie) {
-			Destroy(gameObject);	
+			Destroy(gameObject);
 		}
 
 		if (life <= 0) {
