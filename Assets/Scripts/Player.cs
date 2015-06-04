@@ -15,7 +15,7 @@ public class Player : MonoBehaviour {
 	void Update () {
 
 		if (Input.GetMouseButton(0)) {
-			Debug.Log ("tamer");
+
 			CheckObjectAimed(Input.mousePosition);
 		}
 		if(isAttacking == false)
@@ -65,12 +65,15 @@ public class Player : MonoBehaviour {
 
 		if(currentWeapon.distance < distToCible)
 		{
+			Debug.Log ("reaching enemy");
 			target = enemy.transform.position;
 			target.z = transform.position.z;
+			transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
 		}
 		else{
 			Debug.Log ("attackEnemy");
 			target = transform.position;
+			currentWeapon.Attack(enemy.GetComponent<Enemy>());
 		}
 
 	}
