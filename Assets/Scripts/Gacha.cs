@@ -7,6 +7,7 @@ public class Gacha : MonoBehaviour {
 	public List<Weapon> possibleWeapons;
 
 	void OnTriggerEnter2D(Collider2D collider){
+
 		if (collider.tag == "Player") {
 			Player p = collider.GetComponent<Player>();
 

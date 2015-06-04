@@ -5,6 +5,7 @@ public class Player : MonoBehaviour {
 
 	public float speed = 150f;
 	private Vector3 target;
+	public int currentGold = 100;
 	private bool isAttacking = false;
 	private GameObject cible;
 	public Weapon currentWeapon;
@@ -23,7 +24,11 @@ public class Player : MonoBehaviour {
 			transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
 		}
 		else{
+			if(cible != null)
 			Attack(cible);
+			else{
+				isAttacking = false;
+			}
 		}
 	} 
 
@@ -31,7 +36,7 @@ public class Player : MonoBehaviour {
 
 		RaycastHit hit;
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		if (Physics.Raycast(ray, out hit, 100))
+		if (Physics.Raycast(ray, out hit))
 			{
 				switch (hit.collider.tag)
 				{
