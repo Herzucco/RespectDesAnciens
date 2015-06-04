@@ -11,7 +11,7 @@ public class Weapon : MonoBehaviour {
 		StartCoroutine (ShootFrequency ());
 	}
 
-	public void Attack(Enemy mob){
+	public virtual void Attack(Enemy mob){
 		if (canShoot) {
 			mob.life -= damages;
 		}
