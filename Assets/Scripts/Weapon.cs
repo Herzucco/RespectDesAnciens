@@ -14,6 +14,7 @@ public class Weapon : MonoBehaviour {
 	public virtual void Attack(Enemy mob){
 		if (canShoot) {
 			mob.life -= damages;
+			canShoot = false;
 		}
 	}
 
